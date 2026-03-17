@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sankalp Prakash Pawar · ML & Data Engineer</title>
+  <!-- Font & icons (optional but clean) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f4f7fb;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      color: #1e293b;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 35px -8px rgba(0, 20, 30, 0.15);
+      overflow: hidden;
+    }
+
+    /* header section */
+    .header {
+      background: linear-gradient(145deg, #0b2b3f, #123b4e);
+      color: white;
+      padding: 2rem 2.5rem;
+    }
+
+    .name {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .subhead {
+      font-size: 1.4rem;
+      font-weight: 350;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #6ab0d6;
+      padding-left: 1rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.5rem;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.9rem 1.5rem;
+      border-radius: 60px;
+      margin-top: 0.5rem;
+    }
+
+    .contact-bar a {
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .contact-bar a:hover {
+      color: #b6e2ff;
+      transform: translateY(-1px);
+    }
+
+    .contact-bar i {
+      font-size: 1.1rem;
+      width: 1.2rem;
+    }
+
+    .summary {
+      background: white;
+      padding: 2rem 2.5rem 1.2rem 2.5rem;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .summary p {
+      max-width: 900px;
+      color: #334155;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 2.1fr;
+      gap: 0;
+    }
+
+    .sidebar {
+      background: #f8fafc;
+      padding: 2rem 2rem 2rem 2.2rem;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .main-content {
+      padding: 2rem 2.2rem 2.5rem 2.2rem;
+      background: white;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #0f3b4f;
+      margin: 1.8rem 0 1.2rem 0;
+      border-bottom: 2px solid #cbd5e1;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    /* skill chips */
+    .skill-block {
+      margin-bottom: 1.8rem;
+    }
+
+    .skill-cat {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e4a62;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.7rem;
+    }
+
+    .skill-tag {
+      background: white;
+      border: 1px solid #cbd5e1;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1e3f50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    /* project / experience entries */
+    .project-item, .exp-item, .edu-item {
+      margin-bottom: 2rem;
+    }
+
+    .item-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .item-title {
+      color: #0b2b3f;
+    }
+
+    .item-sub {
+      font-weight: 500;
+      color: #4a5c6b;
+      font-size: 0.9rem;
+      margin: 0.2rem 0 0.4rem 0;
+    }
+
+    .item-date {
+      font-weight: 400;
+      color: #64748b;
+      font-size: 0.9rem;
+      background: #eef2f6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+    }
+
+    .item-desc {
+      margin-top: 0.6rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #9ec3db;
+    }
+
+    .item-desc p {
+      margin-bottom: 0.5rem;
+      color: #2d3c4b;
+      font-size: 0.95rem;
+    }
+
+    .badge-link {
+      display: inline-block;
+      background: #e6f0f7;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0f4a6f;
+      margin-top: 0.3rem;
+      text-decoration: none;
+      border: 1px solid #b7d3e8;
+    }
+
+    .badge-link i {
+      margin-right: 5px;
+      font-size: 0.75rem;
+    }
+
+    .badge-link:hover {
+      background: #cde1f0;
+    }
+
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      margin: 1rem 0;
+    }
+
+    .interest-item {
+      background: white;
+      border-radius: 40px;
+      padding: 0.3rem 1.3rem;
+      border: 1px solid #cbd5e1;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 1.2rem 0;
+    }
+
+    .lang-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .lang {
+      width: 120px;
+      font-weight: 500;
+    }
+
+    .prof-dev {
+      background: #ecf7ff;
+      padding: 1rem 1.5rem;
+      border-radius: 20px;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    /* responsive */
+    @media (max-width: 720px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .name {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- HEADER with name and contact from CV -->
+  <div class="header">
+    <div class="name">SANKALP PRAKASH PAWAR</div>
+    <div class="subhead">ML & Data Engineer · Python Aficionado · Cloud Deployment</div>
+    <div class="contact-bar">
+      <a href="#"><i class="fas fa-envelope"></i> sankalp@posteo.de</a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/spaw</a>
+      <a href="#" target="_blank"><i class="fab fa-github"></i> github.com/pawarp</a>
+      <span><i class="fas fa-map-marker-alt"></i> Berlin</span>
+    </div>
+  </div>
+
+  <!-- SUMMARY section (explicit from CV) -->
+  <div class="summary">
+    <p><strong>ML & Data Engineer</strong> with 7 years of experience in building high-quality software bridging the gap between ideas and solutions. Strong fundamentals in software engineering (C/C++, Python) and well versed statistical analysis, classical data science and ML, deep and reinforcement learning, agentic AI/LLMs, and production-grade cloud-based applications. Core engineer of the low-latency Python-based experimentation toolchain based on the ORCA kernel-user space API for resource allocation. Project lead and developer of full-stack What-To-Wear-Today predictive analytics app using LSTM for weather forecasting and LLMs for classification of clothing items. Passionate about clean-code and test-driven development. Eager to apply my strong systems programming and ML background to build cutting-edge, high-performance ML-solutions for complex real-world business problems.</p>
+  </div>
+
+  <!-- MAIN two column layout: left sidebar (skills, languages, interests) / right (projects, experience, education) -->
+  <div class="grid-2">
+    <!-- LEFT COLUMN: Technical Skills (grouped) + languages + hobbies -->
+    <div class="sidebar">
+      <!-- Technical skills (exactly as CV) -->
+      <div class="section-title">Technical Skills</div>
+      
+      <div class="skill-block">
+        <div class="skill-cat">Programming</div>
+        <div class="skill-items">
+          <span class="skill-tag">Python</span><span class="skill-tag">C/C++</span><span class="skill-tag">Cython</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Data Science & ML</div>
+        <div class="skill-items">
+          <span class="skill-tag">Classical ML</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">Reinforcement Learning</span>
+          <span class="skill-tag">scikit-learn</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">LLMs/GenAI</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Data Engineering</div>
+        <div class="skill-items">
+          <span class="skill-tag">Data Wrangling</span><span class="skill-tag">ETL/ELT</span><span class="skill-tag">dbt</span>
+          <span class="skill-tag">InfluxDB</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">PySpark</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Cloud & Infrastructure</div>
+        <div class="skill-items">
+          <span class="skill-tag">GCP</span><span class="skill-tag">AWS</span><span class="skill-tag">Git CI/CD</span>
+          <span class="skill-tag">Docker</span><span class="skill-tag">Terraform</span><span class="skill-tag">Kestra</span>
+          <span class="skill-tag">Prefect</span><span class="skill-tag">MLflow</span><span class="skill-tag">Bash</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Visualization & Dashboarding</div>
+        <div class="skill-items">
+          <span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Dash</span>
+          <span class="skill-tag">Plotly</span><span class="skill-tag">Grafana</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Software Development</div>
+        <div class="skill-items">
+          <span class="skill-tag">REST API</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Clean Code</span>
+          <span class="skill-tag">Test-Driven Dev</span>
+        </div>
+      </div>
+
+      <!-- LANGUAGES (from CV) -->
+      <div class="section-title" style="margin-top: 2.2rem;">Languages</div>
+      <div class="lang-row">
+        <span class="lang"><i class="fas fa-flag" style="color:#1e4a62;"></i> English</span> Native
+      </div>
+      <div class="lang-row">
+        <span class="lang">Hindi</span> Native
+      </div>
+      <div class="lang-row">
+        <span class="lang">German</span> C1 Niveau
+      </div>
+      <div class="lang-row">
+        <span class="lang">Marathi</span> Native
+      </div>
+      <div class="lang-row">
+        <span class="lang">Swedish</span> Beginner
+      </div>
+
+      <!-- HOBBIES & INTERESTS -->
+      <div class="section-title" style="margin-top: 2rem;">Hobbies & Interests</div>
+      <div class="interests">
+        <span class="interest-item"><i class="fas fa-hiking"></i> Avid Wanderer</span>
+        <span class="interest-item"><i class="fas fa-dumbbell"></i> Strength Enthusiast</span>
+        <span class="interest-item"><i class="fas fa-tree"></i> Hiking/Trekking</span>
+        <span class="interest-item"><i class="fas fa-hand-holding-heart"></i> Volunteering</span>
+        <span class="interest-item"><i class="fas fa-book-open"></i> Philosophy</span>
+      </div>
+      <p style="font-size:0.9rem; margin-top:0.5rem; color:#3f5466;"><i class="fas fa-comment"></i> Relish time in nature, weightlifting, building platforms for public dialogue, and reading existentialism, absurdism, Vedic & Buddhist thought.</p>
+    </div>
+
+    <!-- RIGHT MAIN CONTENT: Key Projects, Work Experience, Professional Development, Education -->
+    <div class="main-content">
+      
+      <!-- KEY PROJECTS (exactly as CV, with links & details) -->
+      <div class="section-title">Key Projects</div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title">Predictive Analytics Prototype: What To Wear Today</span>
+        </div>
+        <div class="item-sub">
+          <a href="#" class="badge-link"><i class="fas fa-external-link-alt"></i> whattoaweartoday.streamlit.app</a>
+        </div>
+        <div class="item-desc">
+          <p>Lead the development of a full-stack data application using time series forecasting (LSTM) and LLM-based classification to derive actionable recommendations. Deployment of FastAPI-based app done using Docker, GCP and Streamlit.</p>
+          <p>Built automated data pipelines for data parsing, collection, and processing of weather data using Open-Meteo weather API and web scraping for clothing catalogues.</p>
+          <p>Key role in integrating the app architecture, model fine-tuning, end-to-end testing, and cloud deployment.</p>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title">Python Toolchain for Wi-Fi Parameter Monitoring and Control</span>
+        </div>
+        <div class="item-sub">
+          <a href="#" class="badge-link"><i class="fab fa-github"></i> github.com/SupraCoNeX/scnx-rateman</a>
+        </div>
+        <div class="item-desc">
+          <p>Engineered an experimentation toolchain for implementation of novel Wi-Fi resource control algorithms and systematically evaluate their performance.</p>
+          <p>Created RateMan, a Python package for monitoring and controlling modulation and coding scheme rate as well as transmission power across multiple access points. Handling of simultaneous telemetry, data pre-processing and control tasks is performed using the asyncio library. Utilized Cython for efficient, low-latency parsing of large-scale traces.</p>
+          <p>Designed an automated pipeline involving setup of measurements in TOML format, directory management, and data collection over a large network. Extended analytics through systematic data cleaning, exploratory analysis, visualization, and performance comparison.</p>
+          <p>Explored the viability of multi-armed bandits and deep Q-network approaches for parameter selection in real Wi-Fi networks.</p>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="item-header">
+          <span class="item-title">Open-Source Resource Control API for Real Wi-Fi Networks (ORCA)</span>
+        </div>
+        <div class="item-sub">
+          <a href="#" class="badge-link"><i class="fas fa-file-alt"></i> dl.acm.org/doi/10.1145/3636534.3697314</a> <span style="margin-left: 1rem; background: #dbeafe; padding:0.2rem 1rem; border-radius:20px;">Peer-reviewed ACM MobiCom</span>
+        </div>
+        <div class="item-desc">
+          <p>Peer-reviewed scientific publication in the renowned ACM MobiCom, read by over 1200 researchers. Development of a Linux kernel-user space API for monitoring and controlling Wi-Fi parameters with 98% accuracy. Validated and improved API through hands-on feature development, performance testing, and bug fixing.</p>
+        </div>
+      </div>
+
+      <!-- WORK EXPERIENCE -->
+      <div class="section-title" style="margin-top: 2rem;">Work Experience</div>
+
+      <div class="exp-item">
+        <div class="item-header">
+          <span class="item-title">Research Associate</span>
+          <span class="item-date">01/2021 – 06/2025</span>
+        </div>
+        <div class="item-sub">Hochschule Nordhausen · Berlin, Germany · Communication Technology and Bus Systems Group (Prof. Thomas Huhn)</div>
+        <div class="item-desc">
+          <p>Conceptualized and developed ORCA and Python package (RateMan) for the first of its kind toolchain for user space implementation of practical Wi-Fi resource control algorithms.</p>
+          <p>Built and maintained scalable, robust data and ML pipelines for optimizing Wi-Fi networks using multi-armed bandits and deep reinforcement learning.</p>
+          <p>Created frameworks for data collection and processing from scratch for OpenWrt-based test beds and Python automation for data collection, preparation, and performance evaluation.</p>
+          <p>Deployed a processing pipeline for terabytes of data collected via an outdoor Wi-Fi network with nodes in 95 households.</p>
+          <p>Responsible for the entire data/ML infrastructure with services deployed in Docker containers, creation of live dashboards (InfluxDB/Grafana), and provision of end-to-end demonstrators.</p>
+          <p>Led cross-functional team collaboration and mentored students to jointly translate research findings into practical applications.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="item-header">
+          <span class="item-title">Research Associate</span>
+          <span class="item-date">03/2018 – 12/2020</span>
+        </div>
+        <div class="item-sub">TU Ilmenau · Ilmenau, Germany · EMS Research Group (Prof. Giovanni Del Galdo)</div>
+        <div class="item-desc">
+          <p>Key developer of a Python package for modeling antenna beam pattern using the Effective Aperture Distribution Function (EADF) for precise system simulation.</p>
+          <p>Implemented an ML optimization method based on spatial correlations to reduce the complexity of antenna array design and simplify RF processing chain configuration.</p>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL DEVELOPMENT & EDUCATION (combined) -->
+      <div class="section-title" style="margin-top: 2rem;">Professional Development & Education</div>
+
+      <div class="exp-item">
+        <div class="item-header">
+          <span class="item-title">Data Science & AI Bootcamp</span>
+          <span class="item-date">09/2025 – 11/2025</span>
+        </div>
+        <div class="item-sub">Le Wagon · Berlin, Germany</div>
+        <div class="item-desc">
+          <p>Intensive training on building of production-grade software for data science/engineering and AI with Python and SQL.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="item-header">
+          <span class="item-title">Master of Science in Communications and Signal Processing</span>
+          <span class="item-date">10/2014 – 12/2017</span>
+        </div>
+        <div class="item-sub">TU Ilmenau · Ilmenau, Germany</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="item-header">
+          <span class="item-title">Bachelor of Engineering in Electronics</span>
+          <span class="item-date">08/2011 – 06/2015</span>
+        </div>
+        <div class="item-sub">University of Mumbai · Mumbai, India</div>
+      </div>
+
+      <!-- optional little publication note -->
+      <hr>
+      <div style="font-size: 0.9rem; background-color: #ecf7ff; padding: 1rem; border-radius: 16px;">
+        <i class="fas fa-quote-right" style="color:#2c6c8f;"></i> 
+        <strong>ORCA publication:</strong> ACM MobiCom, cited by 1200+ researchers · <a href="#" style="text-decoration: none;">dl.acm.org/doi/10.1145/3636534.3697314</a>
+      </div>
+    </div>
+  </div>
+  <!-- tiny footer with German national etc. already mentioned -->
+  <div style="background: #f0f4fa; text-align: center; padding: 1rem; font-size: 0.9rem; border-top: 1px solid #dae2ec; color: #3c5a6f;">
+    <i class="fas fa-location-dot"></i> Berlin · ready to relocate · German National
+  </div>
+</div>
+<!-- optional: add a little style for consistency -->
+</body>
+</html>
