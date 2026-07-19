@@ -17,15 +17,26 @@ jobs:
       - name: Checkout your repository
         uses: actions/checkout@v4
 
-      # --- ADDED THIS STEP TO UPGRADE NODE.JS ---
+      # 1. Enforce the exact modern Node.js engine version Astro requires
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
           node-version: '22.12.0'
-          cache: 'npm' # Speeds up builds by caching your package-lock dependencies
+          cache: 'npm'
 
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
+      # 2. Clean install your exact package-lock dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 3. Compile the Astro project into static HTML/CSS/JS assets
+      - name: Build Astro project
+        run: npm run build
+
+      # 4. Grab the generated files out of the dist/ directory for deployment
+      - name: Upload production assets artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
   deploy:
     needs: build
