@@ -1,8 +1,30 @@
 ---
+// src/pages/index.astro
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="My Portfolio">
-  <h1>Hey, I'm a Developer 🏃‍♂️</h1>
-  <p>Welcome to my new multi-page portfolio built with Vite, React, and Astro.</p>
+<MainLayout title="Home · Sankalp Prakash Pawar">
+  <section class="welcome-hero">
+    <h1>Welcome to piece of the internet!</h1>
+    <p>Feel free to look around or head over to the Portfolio tab to check out my projects and experience.</p>
+  </section>
 </MainLayout>
+
+<style>
+  .welcome-hero {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+</style>
