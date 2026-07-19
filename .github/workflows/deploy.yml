@@ -16,7 +16,14 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v4
-      
+
+      # --- ADDED THIS STEP TO UPGRADE NODE.JS ---
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm' # Speeds up builds by caching your package-lock dependencies
+
       - name: Install, build, and upload your site
         uses: withastro/action@v3
 
