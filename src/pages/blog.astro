@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+
+// Fetch all entries in the 'src/content/blog/' folder
+const allPosts = await getCollection('blog');
+
+// Sort posts by publication date (newest first)
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<MainLayout title="Weekly Running Blog">
+  <h1>🏃‍♂️ Weekly Running Blog</h1>
+  <p>Documenting the training miles, gear updates, and weekly thoughts.</p>
+  
+  <hr style="border-color: #333; margin: 2rem 0;" />
+
+  <ul style="list-style: none; padding: 0;">
+    {sortedPosts.map((post) => (
+      <li style="margin-bottom: 2rem;">
+        <span style="color: #888; font-size: 0.9rem;">
+          {post.data.pubDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </span>
+        <h2 style="margin: 0.5rem 0 0.25rem 0;">
+          <a href={`/blog/${post.id}`} style="color: #38bdf8; text-decoration: none;">
+            {post.data.title}
+          </a>
+        </h2>
+        <p style="margin: 0; color: #ccc;">{post.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</MainLayout>
